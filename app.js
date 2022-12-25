@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
@@ -14,7 +15,7 @@ app.use(express.static("public"));
 // const items = ["Buy Food", "Cook Food", "Eat Food"];
 // const workItems = [];
 
-mongoose.connect("mongodb+srv://yosj:MSairoj0@cluster0.maq2ed7.mongodb.net/?retryWrites=true&w=majority/todolistDB", {useNewUrlParser: true});
+mongoose.connect(process.env.MONGO_URL, {useNewUrlParser: true});
 
 const itemSchema = {
   name: String
